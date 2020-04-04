@@ -1,5 +1,83 @@
-body {
-    background-color: blue;
-    width: 500px;
-    height: 500px;
+/* .col-1 {
+    width: 15%;
+    height: 30px;
+    border: 1px solid blue;
+} */
+
+.row {
+    display: flex;
 }
+
+.col {
+    height: 11vh;
+    border: 1px solid purple;
+}
+
+#grid-container {
+    padding: 15px;
+    width: 100%;
+}
+
+#frame {
+    background-color: cornflowerblue;
+    /*margin-right: auto;
+    margin-left: auto;*/
+    width: 80vh;
+}
+
+#theme-panel {
+    width: auto;
+}
+
+#theme-list {
+    width: 100%;
+}
+
+#my-name {
+    display: inline-block;
+}
+
+#opponent-name {
+    display: inline-block;
+    font-weight: bold;
+}
+
+
+
+/*
+.grid {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 60vh;
+    height: 80vw;
+    max-height: 60vh;
+    font-size: 1rem;
+}
+.row {
+    display: flex;
+}
+.box {
+    background: tomato;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    flex: 1 0 auto;
+    position: relative;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+.box .inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+*/

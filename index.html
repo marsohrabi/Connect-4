@@ -4,18 +4,89 @@
 <head>
     <title>Connect 4</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-        crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    Hello!
+    <div class="container py-4">
+        <div class="text-center">
+            <div id="my-name">Name</div>, you are playing <div id="opponent-name">Player 2</div>.
+        </div>
+        <div id="your-turn" hidden>
+            It's your turn!
+        </div>
+        <div id="opponent-turn" hidden>
+            It's your opponent's turn!
+        </div>
+    </div>
+    <div class="container text-center px-0 py-0" id="frame">
+        <div id="grid-container">
+            <div class="row no-gutters d-flex justify-content-center">
+                <div class="col square" id="00"></div>
+                <div class="col square" id="01"></div>
+                <div class="col square" id="02"></div>
+                <div class="col square" id="03"></div>
+                <div class="col square" id="04"></div>
+                <div class="col square" id="05"></div>
+                <div class="col square" id="06"></div>
+            </div>
+            <div class="row no-gutters d-flex justify-content-center">
+                <div class="col square" id="10"></div>
+                <div class="col square" id="11"></div>
+                <div class="col square" id="12"></div>
+                <div class="col square" id="13"></div>
+                <div class="col square" id="14"></div>
+                <div class="col square" id="15"></div>
+                <div class="col square" id="16"></div>
+            </div>
+            <div class="row no-gutters d-flex justify-content-center">
+                <div class="col square" id="20"></div>
+                <div class="col square" id="21"></div>
+                <div class="col square" id="22"></div>
+                <div class="col square" id="23"></div>
+                <div class="col square" id="24"></div>
+                <div class="col square" id="25"></div>
+                <div class="col square" id="26"></div>
+            </div>
+            <div class="row no-gutters d-flex justify-content-center">
+                <div class="col square" id="30"></div>
+                <div class="col square" id="31"></div>
+                <div class="col square" id="32"></div>
+                <div class="col square" id="33"></div>
+                <div class="col square" id="34"></div>
+                <div class="col square" id="35"></div>
+                <div class="col square" id="36"></div>
+            </div>
+            <div class="row no-gutters d-flex justify-content-center">
+                <div class="col square" id="40"></div>
+                <div class="col square" id="41"></div>
+                <div class="col square" id="42"></div>
+                <div class="col square" id="43"></div>
+                <div class="col square" id="44"></div>
+                <div class="col square" id="45"></div>
+                <div class="col square" id="46"></div>
+            </div>
+            <div class="row no-gutters d-flex justify-content-center">
+                <div class="col square" id="50"></div>
+                <div class="col square" id="51"></div>
+                <div class="col square" id="52"></div>
+                <div class="col square" id="53"></div>
+                <div class="col square" id="54"></div>
+                <div class="col square" id="55"></div>
+                <div class="col square" id="56"></div>
+            </div>
+        </div>
 
-
-
+    </div>
+    <div class="container py-4">
+        <div class="text-center" id="theme-panel">
+            (Original) (Pumpkin Patch) (Forest) (Beach)
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -27,6 +98,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="js/connect4.js"></script>
 </body>
 
 </html>
