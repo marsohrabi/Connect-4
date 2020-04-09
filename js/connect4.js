@@ -1,11 +1,37 @@
-let themes = ["standard", "forest", "beach", "pumpkin"];
-let theme = "standard";
+let themes = ["original", "forest", "beach", "pumpkin"];
+let theme = "original";
+var turn = false;
 
 $(".square").click(function () {
-    console.log(this.id);
+    if (turn) {
+        console.log(this.id);
+        socket.emit("clicked square", {"square_id": this.id});
+    }
+    
 });
 
+function change_theme(theme_name) {
+    if (themes.indexOf(theme_name) > -1) {
+        //console.log("Theme " + theme_name + " selected, old theme is " + theme);
 
+        if (theme_name != theme) {
+            console.log("Changing theme name from " + theme + " to " + theme_name);
+            // get a list of all elements with the old class, add the new theme class, and remove the old class
+            $(".themed").each(function(index) {
+                //console.log(this);
+                $(this).removeClass(theme);
+                $(this).addClass(theme_name);
+                
+            });
+
+            theme = theme_name;
+        }
+    }
+}
+
+$(".theme-option").on("click", function() {
+    change_theme(this.title);
+});
 
 function game() {
     //var socket = io();
@@ -23,8 +49,17 @@ function game() {
     // set display name
     $("#my-name").html(name_cookie);
     
-    
+}
 
+function toggle_turn() {
+    if (turn) {
+        turn = true;
+        $("#your-turn").prop("hidden", false);
+        $("#opponent-turn").prop("hidden", true);
+    } else {
+        $("#your-turn").prop("hidden", true);
+        $("#opponent-turn").prop("hidden", false);
+    }
 }
 
 /*

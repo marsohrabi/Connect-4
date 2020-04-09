@@ -42,7 +42,33 @@
     font-weight: bold;
 }
 
+.themed.original {
+    background-color: skyblue;
+}
+.themed.original #frame {
+    background-color: blue;
+}
 
+.themed.pumpkin {
+    background-color: orange;
+}
+.themed.pumpkin #frame {
+    background-color: peru;
+}
+
+.themed.forest {
+    background-color: green;
+}
+.themed.forest #frame {
+    background-color: saddlebrown;
+}
+
+.themed.beach {
+    background-color: sandybrown;
+}
+.themed.beach #frame {
+    background-color: steelblue;
+}
 
 /*
 .grid {
