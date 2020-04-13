@@ -22,11 +22,15 @@ $(function() {
         setCookie("name", $("#name").val(), 7);
     });
 
+    $("#random-game-btn").on("click", function() {
+        socket.emit("random game selected", {});   
+    });
+
     if (name) {
         // name cookie exists, set it in the display
         $("#name").val(name);
 
-        socket.emit("setup with name", {"name" : name});
+        socket.emit("setup with name", {"name" : name});    // ============================== combine setup into one emit with or without the name attribute
     } else {
         socket.emit("setup without name");
     }
@@ -42,6 +46,10 @@ $(function() {
             $("#name").val(name);
             setCookie("name", name, 7);
         }
+    });
+
+    socket.on("wait for random game", function(args) {
+        $("#wait-notice").html("Please wait for another random player to join the game");
     });
 
     socket.on("start game", function(args) {

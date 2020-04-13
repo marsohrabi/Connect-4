@@ -1,14 +1,9 @@
 let themes = ["original", "forest", "beach", "pumpkin"];
 let theme = "original";
+let game_over = false;
 var turn = false;
 
-$(".square").click(function () {
-    if (turn) {
-        console.log(this.id);
-        socket.emit("clicked square", {"square_id": this.id});
-    }
-    
-});
+
 
 function change_theme(theme_name) {
     if (themes.indexOf(theme_name) > -1) {
@@ -34,8 +29,6 @@ $(".theme-option").on("click", function() {
 });
 
 function game() {
-    //var socket = io();
-
     // check for name and theme cookies
     let theme_cookie = getCookie("theme")
     if (theme_cookie) {
@@ -48,12 +41,36 @@ function game() {
     let name_cookie = getCookie("name");
     // set display name
     $("#my-name").html(name_cookie);
+
+    $(".square").click(function () {
+        if (turn) {
+            console.log(this.id);
+            socket.emit("clicked square", {"square_id": this.id});
+        }
+        
+    });
+
+    socket.on("valid move", function(args) {
+        console.log("Valid move!");
+
+        if (args["turn"]) {
+            turn = true;
+        } else {
+            turn = false;
+        }
+
+        toggle_turn();
+    });
+
+    socket.on("invalid move", function(args) {
+        console.log("Invalid move!");
+    });
+
     
 }
 
 function toggle_turn() {
     if (turn) {
-        turn = true;
         $("#your-turn").prop("hidden", false);
         $("#opponent-turn").prop("hidden", true);
     } else {
