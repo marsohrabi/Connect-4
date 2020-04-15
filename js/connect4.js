@@ -2,18 +2,14 @@ let themes = ["original", "forest", "beach", "pumpkin"];
 let theme = "original";
 let game_over = false;
 var turn = false;
-
-
+var my_player;
 
 function change_theme(theme_name) {
     if (themes.indexOf(theme_name) > -1) {
-        //console.log("Theme " + theme_name + " selected, old theme is " + theme);
-
         if (theme_name != theme) {
             console.log("Changing theme name from " + theme + " to " + theme_name);
             // get a list of all elements with the old class, add the new theme class, and remove the old class
             $(".themed").each(function(index) {
-                //console.log(this);
                 $(this).removeClass(theme);
                 $(this).addClass(theme_name);
                 
@@ -44,15 +40,12 @@ function game() {
 
     $(".square").click(function () {
         if (turn) {
-            console.log(this.id);
             socket.emit("clicked square", {"square_id": this.id});
         }
         
     });
 
     socket.on("valid move", function(args) {
-        console.log("Valid move!");
-
         if (args["turn"]) {
             turn = true;
         } else {
@@ -60,13 +53,41 @@ function game() {
         }
 
         toggle_turn();
+
+        if (turn) {
+            if (my_player === 1) {
+                $("#" + args.square).append("<div class='circle themed " + theme + " player-" + 2 + "'></div>");
+             } else {
+                $("#" + args.square).append("<div class='circle themed " + theme + " player-" + 1 + "'></div>");
+            }
+        } else {
+            $("#" + args.square).append("<div class='circle themed " + theme + " player-" + my_player + "'></div>");
+        }
+
+        console.log(args.game_state);
     });
 
     socket.on("invalid move", function(args) {
         console.log("Invalid move!");
     });
 
-    
+    socket.on("won game", function(args) {
+        turn = false;
+        game_over = false;
+        $("#your-turn").prop("hidden", true);
+        $("#opponent-turn").prop("hidden", true);
+
+        $("#result").append("<h2 color='red'>You won the game!</h2>");
+    });
+
+    socket.on("lost game", function(args) {
+        turn = false;
+        game_over = false;
+        $("#your-turn").prop("hidden", true);
+        $("#opponent-turn").prop("hidden", true);
+
+        $("#result").append("<h2 color='red'>You lost the game!</h2>");
+    });
 }
 
 function toggle_turn() {

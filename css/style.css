@@ -48,19 +48,37 @@
 .themed.original #frame {
     background-color: blue;
 }
+.circle.themed.original.player-1 {
+    background-color: yellow;
+}
+.circle.themed.original.player-2 {
+    background-color: red;
+}
 
 .themed.pumpkin {
-    background-color: orange;
+    background-color: lawngreen;
 }
 .themed.pumpkin #frame {
     background-color: peru;
 }
+.circle.themed.pumpkin.player-1 {
+    background-color: orange;
+}
+.circle.themed.pumpkinl.player-2 {
+    background-color: darkgreen;
+}
 
 .themed.forest {
-    background-color: green;
+    background-color: #CBCCBC;
 }
 .themed.forest #frame {
-    background-color: saddlebrown;
+    background-color: rgb(21, 32, 23);
+}
+.circle.themed.forest.player-1 {
+    background-color: rgb(99, 114, 93);
+}
+.circle.themed.forest.player-2 {
+    background-color: rgb(82, 99, 108);
 }
 
 .themed.beach {
@@ -69,6 +87,25 @@
 .themed.beach #frame {
     background-color: steelblue;
 }
+
+.circle {
+    position: relative;
+    border-radius: 50%;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+}
+
+/* .player-1 {
+    background-color: yellow;
+}
+
+.player-2 {
+    background-color: red;
+} */
+
+
 
 /*
 .grid {

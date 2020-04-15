@@ -58,6 +58,12 @@ $(function() {
         
         turn = args.turn;
 
+        if (turn) {
+            my_player = 1;
+        } else {
+            my_player = 2;
+        }
+
         toggle_turn();
         show_page();
     });
