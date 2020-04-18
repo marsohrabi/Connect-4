@@ -1,0 +1,12 @@
+SENG 513 Individual Project - Instructions
+Maryam Sohrabi 10077637
+
+This submission contains code for a game of Connect 4.
+Source files are also available at: https://github.com/marsohrabi/Connect-4
+This submission contains all Node.js modules used in the game and no further installation is required.
+
+To run the game:
+	1. Extract all zipped files to an empty directory
+	2. Open a terminal or command line window in the directory where the file "index.js" is located and run the command "node index.js"
+	3. Navigate to http://localhost:3000/ in any modern internet browser to load the game (not tested in IE/Edge)
+	4. For concurrent games, open additional incognito browser windows or open a different browser
