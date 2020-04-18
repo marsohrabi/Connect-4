@@ -1,8 +1,12 @@
-/* .col-1 {
-    width: 15%;
-    height: 30px;
-    border: 1px solid blue;
-} */
+/*
+SENG 513 Individual Project
+Maryam Sohrabi 10077637
+Lab section B04
+*/
+
+html, body {
+    height: 100vh;
+}
 
 .row {
     display: flex;
@@ -10,12 +14,23 @@
 
 .col {
     height: 11vh;
-    border: 1px solid purple;
+}
+
+#game-text {
+    background-color: aliceblue;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+#game {
+    margin: 0;
 }
 
 #grid-container {
     padding: 15px;
     width: 100%;
+    border: 2px solid black;
 }
 
 #frame {
@@ -43,10 +58,13 @@
 }
 
 .themed.original {
-    background-color: skyblue;
+    background-color: white;
 }
 .themed.original #frame {
-    background-color: blue;
+    background-color: #348ceb;
+}
+.circle.themed.empty {
+    background-color: white;
 }
 .circle.themed.original.player-1 {
     background-color: yellow;
@@ -55,37 +73,68 @@
     background-color: red;
 }
 
-.themed.pumpkin {
-    background-color: lawngreen;
-}
 .themed.pumpkin #frame {
-    background-color: peru;
+    background-color: rgb(248, 195, 137);
 }
 .circle.themed.pumpkin.player-1 {
-    background-color: orange;
+    background-color: rgb(233, 159, 78);
 }
-.circle.themed.pumpkinl.player-2 {
-    background-color: darkgreen;
+.circle.themed.pumpkin.player-2 {
+    background-color: rgb(120, 154, 101);
 }
 
-.themed.forest {
-    background-color: #CBCCBC;
-}
 .themed.forest #frame {
-    background-color: rgb(21, 32, 23);
+    background-color: #68864f;
 }
 .circle.themed.forest.player-1 {
-    background-color: rgb(99, 114, 93);
+    background-color: #314a1d;
 }
 .circle.themed.forest.player-2 {
-    background-color: rgb(82, 99, 108);
+    background-color: #494122;
 }
 
-.themed.beach {
-    background-color: sandybrown;
-}
 .themed.beach #frame {
-    background-color: steelblue;
+    background-color: rgb(216, 203, 187);
+}
+.circle.themed.beach.player-1 {
+    background-color: rgb(15, 205, 197)
+}
+.circle.themed.beach.player-2 {
+    background-color: rgb(54, 128, 201);
+}
+
+.circle-demo.theme-demo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.circle-demo.theme-demo.original.player-1 {
+    background-color: yellow;
+}
+.circle-demo.theme-demo.original.player-2 {
+    background-color: red;
+}
+
+.circle-demo.theme-demo.pumpkin.player-1 {
+    background-color: rgb(233, 159, 78);
+}
+.circle-demo.theme-demo.pumpkin.player-2 {
+    background-color: rgb(120, 154, 101);
+}
+
+.circle-demo.theme-demo.forest.player-1 {
+    background-color: #314a1d;
+}
+.circle-demo.theme-demo.forest.player-2 {
+    background-color: #494122;
+}
+
+.circle-demo.theme-demo.beach.player-1 {
+    background-color: rgb(15, 205, 197)
+}
+.circle-demo.theme-demo.beach.player-2 {
+    background-color: rgb(54, 128, 201);
 }
 
 .circle {
@@ -97,50 +146,16 @@
     height: 80%;
 }
 
-/* .player-1 {
-    background-color: yellow;
+#my-tile {
+    width: 20px;
+    height: 20px;
 }
 
-.player-2 {
-    background-color: red;
-} */
-
-
-
-/*
-.grid {
-    margin: 0 auto;
-    width: 80vw;
-    max-width: 60vh;
-    height: 80vw;
-    max-height: 60vh;
-    font-size: 1rem;
+#opponent-tile {
+    width: 20px;
+    height: 20px;
 }
-.row {
-    display: flex;
-}
-.box {
-    background: tomato;
-    margin: 5px;
-    color: white;
+
+.theme-active {
     font-weight: bold;
-    flex: 1 0 auto;
-    position: relative;
 }
-.box:after {
-    content: "";
-    float:left;
-    display: block;
-    padding-top: 100%;
-}
-.box .inner {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-*/

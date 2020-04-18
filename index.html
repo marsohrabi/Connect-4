@@ -1,3 +1,9 @@
+<!--
+SENG 513 Individual Project
+Maryam Sohrabi 10077637
+Lab section B04
+-->
+
 <!DOCTYPE HTML>
 <html>
 
@@ -12,47 +18,59 @@
 </head>
 
 <body class="themed original">
-    <div id="setup">
-        <div class="container">
-            <div class="row">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
-                <button type="button" id="change-name-btn">Save</button>
+
+    <!-- Game setup screen -->
+    <div id="setup" class="container text-center h-100">
+        <h1>Connect 4</h1>
+        <p>
+            Edit your name below and select a game option.
+        </p>
+        <div class="form-inline mx-auto my-4 justify-content-center">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control mx-3" id="name" name="name" size="50" class="ml-2">
+            <button type="button" class="btn btn-success" id="change-name-btn">Save</button>
+        </div>
+        <div class="row text-center m-auto h-100">
+            <div class="col border border-primary bg-light rounded mx-1 p-2 align-middle h-50">
+                Give this code to a friend and tell them to enter it in the box on this page:<br>
+                <div id="game-code" class="font-weight-bold"></div>
             </div>
-            <div>
-                <div>
-                    Give this code to a friend and tell them to enter it in the box on this page:
-                    <div id="game-code"></div>
-                </div>
-            </div>
-            <div>
-                Enter a code here to join a game with a friend:<br>
-                <form action="/" method="post">
+
+            <div class="col border border-success bg-light rounded mx-1 p-2 h-50">
+                Enter a code here to join a game with a friend:<br><br>
+                <form action="/" method="post" class="form-inline justify-content-center">
                     <label for="code">Game code:</label>
-                    <input type="text" id="code" name="code">
-                    <button type="submit">Go</button>
+                    <input type="text" class="form-control mx-1" id="code" name="code" size="10">
+                    <button type="submit" class="btn btn-primary">Go</button>
                 </form>
             </div>
-            <div>
+            <div class="col border border-warning bg-light rounded mx-1 p-2 h-50 text-center">
                 Join a random game:<br><br>
-                <button type="button" id="random-game-btn">Join a random game</button>
-                <span id="wait-notice"></span>
+                <button type="button" class="btn btn-primary" id="random-game-btn">Join a random game</button><br><br>
+                <span id="wait-notice" class="mt-2 text-success"></span>
             </div>
         </div>
     </div>
 
+
+    <!-- Game screen -->
     <div id="game" hidden>
-        <div class="container py-4">
+        <div id="game-text" class="container py-4">
             <div class="text-center">
-                <div id="my-name">Name</div>, you are playing <div id="opponent-name">Player 2</div>.
+                <div id="my-name">Name</div>, you are playing <div id="opponent-name" class="ml-1">Player 2</div>.<br>
+                <div class="d-inline-block">
+                    Your tile: <div id="my-tile" class="circle themed original d-inline-block ml-0 mr-5"></div>
+                    Opponent's tile: <div id="opponent-tile" class="circle themed original d-inline-block ml-0 mr-5"></div>
+                </div>
             </div>
             <div class="text-center">
-                <div id="your-turn" hidden>
+                <div id="your-turn" class="mt-2 text-success font-weight-bold" hidden>
                     It's your turn!
                 </div>
-                <div id="opponent-turn" hidden>
+                <div id="opponent-turn" class="mt-2 text-warning font-weight-bold" hidden>
                     It's your opponent's turn!
                 </div>
+                <div id="bad-click" class="text-warning font-weight-bold" hidden>That's not a valid move! Try again.</div>
                 <div id="result"></div>
             </div>
         </div>
@@ -113,29 +131,37 @@
                     <div class="col square" id="56"></div>
                 </div>
             </div>
-    
+
         </div>
+
+        <!-- Theme selection -->
         <div class="container py-4">
             <div class="text-center" id="theme-panel">
+                <b><u>Themes</u></b>
                 <ul class="list-inline">
-                    <li class="list-inline-item theme-option" title="original">
-                        (Original)
+                    <li class="list-inline-item theme-option mx-2" title="original" id="original-theme">
+                        Original
+                        <div class="circle-demo theme-demo original player-1 d-inline-block align-middle"></div>
+                        <div class="circle-demo theme-demo original player-2 d-inline-block align-middle"></div>
                     </li>
-                    <li class="list-inline-item theme-option" title="pumpkin">
-                        (Pumpkin Patch)
+                    <li class="list-inline-item theme-option mx-2" title="pumpkin" id="pumpkin-theme">
+                        Pumpkin Patch
+                        <div class="circle-demo theme-demo pumpkin player-1 d-inline-block align-middle"></div>
+                        <div class="circle-demo theme-demo pumpkin player-2 d-inline-block align-middle"></div>
                     </li>
-                    <li class="list-inline-item theme-option" title="forest">
-                        (Forest)
+                    <li class="list-inline-item theme-option mx-2" title="forest" id="forest-theme">
+                        Forest
+                        <div class="circle-demo theme-demo forest player-1 d-inline-block align-middle"></div>
+                        <div class="circle-demo theme-demo forest player-2 d-inline-block align-middle"></div>
                     </li>
-                    <li class="list-inline-item theme-option" title="beach">
-                        (Beach)
+                    <li class="list-inline-item theme-option mx-2" title="beach" id="beach-theme">
+                        Beach
+                        <div class="circle-demo theme-demo beach player-1 d-inline-block align-middle"></div>
+                        <div class="circle-demo theme-demo beach player-2 d-inline-block align-middle"></div>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div>
-        <button type="button" onclick="show_page()">Toggle</button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
