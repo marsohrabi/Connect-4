@@ -313,7 +313,7 @@ function end_game(tie, winner, loser, game) {
     game["end"] = true;
 }
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 http.listen(port, function () {
-    console.log('listening on *:3000');
+    console.log('listening on *:' + port);
 });
